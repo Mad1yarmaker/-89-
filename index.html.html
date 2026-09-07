@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Солнечный мир — детский сад</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fbfa;
+            color: #24343b;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ---------- HEADER ---------- */
+
+        header {
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #e8eeee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: #8bd8c7;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 24px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #526168;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #48a995;
+        }
+
+        .header-button {
+            background: #5bbda8;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 12px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .header-button:hover {
+            background: #439d8a;
+        }
+
+        /* ---------- HERO ---------- */
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 25px;
+
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e2f5f0;
+            color: #3f9b88;
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            margin-bottom: 22px;
+            color: #263b42;
+        }
+
+        .hero h1 span {
+            color: #51b39e;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #68777d;
+            max-width: 570px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 22px;
+            border-radius: 13px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button-primary {
+            background: #5bbda8;
+            color: white;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-2px);
+            background: #439d8a;
+        }
+
+        .button-secondary {
+            background: white;
+            border: 1px solid #dce8e5;
+            color: #4c646b;
+        }
+
+        .button-secondary:hover {
+            background: #f0f8f6;
+        }
+
+        /* ---------- HERO CARD ---------- */
+
+        .hero-card {
+            background: #dff3ed;
+            border-radius: 35px;
+            min-height: 390px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sun {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #ffd875;
+            top: 45px;
+            right: 50px;
+        }
+
+        .house {
+            width: 250px;
+            height: 180px;
+            background: #fffaf0;
+            border-radius: 20px;
+            position: relative;
+            margin-top: 90px;
+            box-shadow: 0 20px 30px rgba(60, 100, 90, 0.08);
+        }
+
+        .roof {
+            position: absolute;
+            width: 180px;
+            height: 100px;
+            background: #f39c83;
+            transform: rotate(45deg);
+            top: -48px;
+            left: 35px;
+            border-radius: 15px;
+        }
+
+        .window {
+            position: absolute;
+            width: 55px;
+            height: 65px;
+            background: #a9dff0;
+            border: 5px solid white;
+            left: 30px;
+            top: 55px;
+            border-radius: 10px;
+        }
+
+        .door {
+            position: absolute;
+            width: 55px;
+            height: 90px;
+            background: #8ecab9;
+            right: 35px;
+            bottom: 0;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .tree {
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            background: #76c6a4;
+            border-radius: 50%;
+            bottom: 30px;
+            left: 55px;
+        }
+
+        .tree::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 75px;
+            background: #9c7957;
+            left: 23px;
+            top: 50px;
+            z-index: -1;
+        }
+
+        /* ---------- SECTIONS ---------- */
+
+        .section {
+            padding: 80px 25px;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #263b42;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #718087;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* ---------- CARDS ---------- */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e7eeee;
+            border-radius: 22px;
+            padding: 30px;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(46, 85, 75, 0.09);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 16px;
+            background: #e1f5f0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #718087;
+            font-size: 15px;
+        }
+
+        /* ---------- ABOUT ---------- */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 350px;
+            background: #fcebdc;
+            border-radius: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 100px;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #6c7a80;
+            margin-bottom: 18px;
+        }
+
+        .check-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .check-list li {
+            margin-bottom: 13px;
+            color: #52646a;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            display: inline-flex;
+
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #dff4ee;
+            color: #45a58f;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* ---------- PROGRAMS ---------- */
+
+        .program {
+            background: #f7faf9;
+            border-radius: 20px;
+            padding: 24px;
+
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .program-number {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+
+            border-radius: 13px;
+            background: #5bbda8;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: bold;
+        }
+
+        .program h3 {
+            margin-bottom: 4px;
+        }
+
+        .program p {
+            color: #75838a;
+            font-size: 14px;
+        }
+
+        /* ---------- CONTACT ---------- */
+
+        .contact {
+            background: #dff3ed;
+            border-radius: 30px;
+            padding: 50px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #62766f;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: white;
+
+            padding: 15px 17px;
+            border-radius: 12px;
+
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            background: #263b42;
+            color: white;
+            padding: 40px 25px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            color: #b9c7ca;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: #dce5e6;
+            font-size: 14px;
+        }
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 50px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .contact {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .header-container {
+                padding: 14px 18px;
+            }
+
+            .header-button {
+                display: none;
+            }
+
+            .hero {
+                padding: 45px 18px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-card {
+                min-height: 300px;
+            }
+
+            .section {
+                padding: 60px 18px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text h2 {
+                font-size: 30px;
+            }
+
+            .contact {
+                padding: 30px 22px;
+            }
+
+            .contact h2 {
+                font-size: 29px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <div class="header-container">
+
+        <a href="#" class="logo">
+            <div class="logo-icon">☀️</div>
+            <span>Солнечный мир</span>
+        </a>
+
+        <nav>
+            <a href="#about">О нас</a>
+            <a href="#programs">Программы</a>
+            <a href="#specialists">Специалисты</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+
+        <a href="#contacts" class="header-button">
+            Записаться
+        </a>
+
+    </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <div class="badge">
+            Инклюзивный детский сад
+        </div>
+
+        <h1>
+            Место, где <span>каждый ребёнок</span> важен
+        </h1>
+
+        <p>
+            Создаём безопасную, тёплую и развивающую среду
+            для детей с разными особенностями и потребностями.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#contacts" class="button button-primary">
+                Познакомиться с нами
+            </a>
+
+            <a href="#programs" class="button button-secondary">
+                Наши занятия
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div class="sun"></div>
+
+        <div class="tree"></div>
+
+        <div class="house">
+            <div class="roof"></div>
+            <div class="window"></div>
+            <div class="door"></div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="section section-white">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <h2>Что мы предлагаем</h2>
+
+            <p>
+                Мы создаём пространство, в котором ребёнок
+                может развиваться в своём темпе.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🧩
+                </div>
+
+                <h3>Индивидуальный подход</h3>
+
+                <p>
+                    Учитываем особенности, интересы и
+                    индивидуальный темп развития каждого ребёнка.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ❤️
+                </div>
+
+                <h3>Забота и поддержка</h3>
+
+                <p>
+                    Создаём спокойную атмосферу,
+                    где ребёнок чувствует себя безопасно.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🌱
+                </div>
+
+                <h3>Развитие навыков</h3>
+
+                <p>
+                    Через игры и занятия развиваем
+                    коммуникацию, самостоятельность и творчество.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section" id="about">
+
+    <div class="section-container">
+
+        <div class="about">
+
+            <div class="about-image">
+                🧒🏻👧🏻
+            </div>
+
+
+            <div class="about-text">
+
+                <div class="badge">
+                    О нашем садике
+                </div>
+
+                <h2>
+                    Расти, играть и быть собой
+                </h2>
+
+                <p>
+                    «Солнечный мир» — это пространство,
+                    где дети получают поддержку, внимание
+                    и возможности для развития.
+                </p>
+
+                <p>
+                    Мы верим, что у каждого ребёнка есть
+                    свои сильные стороны, которые важно
+                    заметить и поддержать.
+                </p>
+
+
+                <ul class="check-list">
+
+                    <li>
+                        Небольшие группы
+                    </li>
+
+                    <li>
+                        Специалисты с опытом работы
+                    </li>
+
+                    <li>
+                        Доступная и безопасная среда
+                    </li>
+
+                    <li>
+                        Постоянная связь с родителями
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROGRAMS ================= -->
+
+<section class="section section-white" id="programs">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <h2>Наши направления</h2>
+
+            <p>
+                Занятия проходят в игровой форме
+                и адаптируются под возможности ребёнка.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="program">
+
+                <div class="program-number">
+                    01
+                </div>
+
+                <div>
+                    <h3>Развитие речи</h3>
+
+                    <p>
+                        Игры и упражнения для коммуникации.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="program">
+
+                <div class="program-number">
+                    02
+                </div>
+
+                <div>
+                    <h3>Сенсорное развитие</h3>
+
+                    <p>
+                        Работа с ощущениями и окружающей средой.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="program">
+
+                <div class="program-number">
+                    03
+                </div>
+
+                <div>
+                    <h3>Творчество</h3>
+
+                    <p>
+                        Рисование, музыка и творческие игры.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="program">
+
+                <div class="program-number">
+                    04
+                </div>
+
+                <div>
+                    <h3>Социальные навыки</h3>
+
+                    <p>
+                        Учимся взаимодействовать и играть вместе.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="program">
+
+                <div class="program-number">
+                    05
+                </div>
+
+                <div>
+                    <h3>Физическое развитие</h3>
+
+                    <p>
+                        Движение, координация и активные игры.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="program">
+
+                <div class="program-number">
+                    06
+                </div>
+
+                <div>
+                    <h3>Самостоятельность</h3>
+
+                    <p>
+                        Формируем полезные навыки на каждый день.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SPECIALISTS ================= -->
+
+<section class="section" id="specialists">
+
+    <div class="section-container">
+
+        <div class="section-title">
+
+            <h2>Команда специалистов</h2>
+
+            <p>
+                Рядом с ребёнком находятся люди,
+                которым можно доверять.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">
+                    👩‍🏫
+                </div>
+
+                <h3>Воспитатели</h3>
+
+                <p>
+                    Помогают детям адаптироваться,
+                    играть и учиться взаимодействовать.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    👩‍⚕️
+                </div>
+
+                <h3>Специалисты</h3>
+
+                <p>
+                    Индивидуальная поддержка развития
+                    в соответствии с потребностями ребёнка.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    👨‍👩‍👧
+                </div>
+
+                <h3>Родители</h3>
+
+                <p>
+                    Работаем вместе с семьёй и регулярно
+                    обсуждаем успехи ребёнка.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="section" id="contacts">
+
+    <div class="section-container">
+
+        <div class="contact">
+
+            <div>
+
+                <div class="badge">
+                    Мы на связи
+                </div>
+
+                <h2>
+                    Хотите узнать больше?
+                </h2>
+
+                <p>
+                    Оставьте сообщение, и мы свяжемся
+                    с вами и расскажем подробнее
+                    о нашем детском саду.
+                </p>
+
+                <br>
+
+                <p>
+                    📍 г. Кокшетау<br>
+                    📞 +7 (700) 000-00-00<br>
+                    ✉️ hello@solnechny-mir.kz
+                </p>
+
+            </div>
+
+
+            <form>
+
+                <input
+                    type="text"
+                    placeholder="Ваше имя"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    placeholder="Номер телефона"
+                    required
+                >
+
+                <textarea
+                    placeholder="Ваш вопрос"
+                ></textarea>
+
+                <button
+                    type="submit"
+                    class="button button-primary"
+                >
+                    Отправить заявку
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div>
+
+            <div class="footer-logo">
+                ☀️ Солнечный мир
+            </div>
+
+            <p>
+                Инклюзивное пространство для детей
+                и их семей.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#about">
+                О нас
+            </a>
+
+            <a href="#programs">
+                Программы
+            </a>
+
+            <a href="#contacts">
+                Контакты
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
